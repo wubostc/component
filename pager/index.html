@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>todo</title>
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./pager.css" />
+  <script type="text/javascript" src="./pager.js"></script>
+
+</head>
+<body>
+
+  <div class="pager-container"></div>
+
+  <script type="text/javascript">
+
+    var p = new pager(document.querySelector(".pager-container"), 1, function(i, count) {
+
+      console.log("i: "+i+"count:"+count);
+
+    } );
+
+    p.setCount(100);
+
+  </script>
+
+</body>
+</html>
