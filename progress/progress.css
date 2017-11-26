@@ -1,0 +1,55 @@
+
+.progress-container {
+    height: 8px;
+}
+
+.progress-container>.wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 4px 0 0;
+}
+
+.progress-container .wrapper>.progress {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+
+
+
+.progress-container .wrapper>.controller {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #B6BCBF;
+    cursor: pointer;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    margin-left: -8px;
+}
+
+
+.progress-container .wrapper .progress>.progress-max {
+    width: 100%;
+    height: 100%;
+    background: #D1DADE;
+}
+
+.progress-container .wrapper .progress>.progress-value {
+    width: 0;
+    height: 100%;
+    background: #248BC7;
+    position: absolute;
+    left: 0;
+    top: 0;
+}

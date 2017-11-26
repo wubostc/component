@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>todo</title>
+  <link rel="stylesheet" href="./progress.css" />
+  <script type="text/javascript" src="./progress.js"></script>
+</head>
+<body>
+  <div class="progress-container"></div>
+  <script type="text/javascript">
+    var myprogress = new progress(document.querySelector(".progress-container"),
+                                  {val:10, max: 200, ondrag: function(v) {
+ console.log(v);
+}})
+  </script>
+</body>
+</html>
