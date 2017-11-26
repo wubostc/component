@@ -59,6 +59,7 @@ pager.prototype.__create = function(n) {
 
     for (let i = 0; i < n; ++i) {
         this.mem.pages.items[i] = document.createElement("li");
+        this.mem.pages.items[i].classList.add("item");
         this.mem.pages.ul.appendChild(this.mem.pages.items[i]);
     }
 
@@ -69,6 +70,19 @@ pager.prototype.__create = function(n) {
     this.mem.pages.last.innerText = this.pages;
 
 };
+
+pager.prototype.setPageSize = function(new_size) {
+    if (new_size === this.size) {
+        return;
+    }
+
+    // 上一次设置的每页条数
+    let prev_size = this.size;
+
+    this.size = new_size;
+
+    this.setCount(this.count);
+}
 
 pager.prototype._init = function () {
     if (this.opt) {
@@ -106,8 +120,8 @@ pager.prototype._init = function () {
 
     this.mem.pages.prev.innerHTML = this.el.prev;
     this.mem.pages.next.innerHTML = this.el.next;
-    this.mem.pages.jump_prev.innerHTML = this.el.jump_prev;
-    this.mem.pages.jump_next.innerHTML = this.el.jump_next;
+    this.mem.pages.jump_prev.innerHTML = this.el.jump_prev + this.el.jump_prev_hover;
+    this.mem.pages.jump_next.innerHTML = this.el.jump_next + this.el.jump_next_hover;
 
 
     this.mem.pages.ul.appendChild(this.mem.pages.prev);
@@ -127,13 +141,11 @@ pager.prototype._init = function () {
     //this.mem.pages.prev.addEventListener("click", this.__goto.bind(this), false);
     //this.mem.pages.next.addEventListener("click", this.__goto.bind(this), false);
 
-    //this.mem.pages.jump_prev.addEventListener("click", this.__jump.bind(this), false);
-    //this.mem.pages.jump_next.addEventListener("click", this.__jump.bind(this), false);
+    //this.mem.pages.jump_prev.addEventListener("mouseover", this.__jumphover.bind(this), false);
 
 
     //this.render();
 };
-
 
 pager.prototype.__goto = function(e) {
 
@@ -205,9 +217,22 @@ pager.prototype.setCount = function (count) {
 pager.prototype.render = function () {
 
     let begin, end;
-    let critical = Number.parseInt(this.curr_pages / 2) + 1;
-    let lfixed = 0x01, rfixed = 0x02, float = 0x04,
-        lmore = 0x08, rmore = 0x10, first = 0x20, last = 0x40;
+    //let critical = Number.parseInt(this.curr_pages / 2) + 1;
+    let critical; // 是否浮动的临界值
+
+    if (this.pages <= this.curr_pages) { // 全部page <= 要显示的page
+        critical = this.pages;
+    } else {
+        critical = Number.parseInt(this.curr_pages / 2) + 1;
+    }
+
+    let lfixed = 0x01, //要显示的按钮固定在左边
+        rfixed = 0x02, //要显示的按钮固定在左边
+        float = 0x04,  // 要显示的按钮浮动
+        lmore = 0x08, // 显示左边的快进
+        rmore = 0x10, // 显示右边的快进
+        first = 0x20, last = 0x40;  // 显示左右两边的数字
+
     let state = 0;
 
     if (this.index === 1) {
@@ -222,6 +247,8 @@ pager.prototype.render = function () {
     } else {
         this.mem.pages.next.classList.remove("disabled");
     }
+
+
 
     // curr_pages = 5
     // < 1 2 3 4 5
