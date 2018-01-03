@@ -1,0 +1,301 @@
+
+
+
+@keyframes DialogMaskEnter {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes DialogMaskLeave {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes DialogEnter {
+    0% {
+        transform: scale(0.7);
+        opacity: .1;
+    }
+    96% {
+        transform: scale(1.01);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes DialogLeave {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.1);
+        opacity: .03;
+    }
+}
+
+@keyframes DialogMaskEnter1 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes DialogMaskLeave1 {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes DialogEnter1 {
+    0% {
+        transform: translateY(5%);
+        opacity: .5;
+    }
+    100% {
+        transform:  translateY(50%);
+        opacity: 1;
+    }
+}
+
+@keyframes DialogLeave1 {
+    0% {
+        transform:  translateY(50%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-20%);
+        opacity: 0;
+    }
+}
+
+
+.dialog-container {
+
+}
+
+.dialog-container.dialog-hidden {
+    display: none;
+}
+
+.dialog-container>.dialog-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(55,55,55,.6);
+    z-index: 1000;
+}
+
+.dialog-container>.dialog-mask.dialog-mask-hidden {
+    display: none;
+}
+
+.dialog-container .dialog-mask.dialog-mask-enter {
+    animation: .6s DialogMaskEnter cubic-bezier(0.96, -0.03, 0.38, 1) forwards;
+}
+
+.dialog-container .dialog-mask.dialog-mask-leave {
+    animation: .6s DialogMaskLeave cubic-bezier(0.44, 0.04, 0.27, 1.11) forwards;
+}
+
+.dialog-container .dialog-mask.dialog-mask-enter-fromtop {
+    animation: .6s DialogMaskEnter forwards;
+}
+
+.dialog-container .dialog-mask.dialog-mask-leave-fromtop {
+    animation: .6s DialogMaskLeave forwards;
+}
+
+/* base dialog */
+.dialog-container>.dialog {
+    min-width: 64px;
+    min-height: 24px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 20px 3px rgba(0,0,0,0.4);
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 1000;
+    overflow: hidden;
+    outline: 0;
+}
+
+.dialog-container>.dialog.active {
+    z-index: 9999;
+}
+
+/* Modeless dialog */
+.dialog-container .dialog.dialog-modeless {
+
+}
+
+/* Modal dialog */
+.dialog-container .dialog.dialog-modal {
+
+}
+
+.dialog-container>.dialog.dialog-enter {
+    animation: .6s DialogEnter cubic-bezier(0.96, -0.03, 0.38, 1) forwards;
+}
+
+.dialog-container>.dialog.dialog-leave {
+    animation: .6s DialogLeave cubic-bezier(0.44, 0.04, 0.27, 1.11) forwards;
+}
+
+.dialog-container>.dialog.dialog-enter-fromtop {
+    animation: .6s DialogEnter1  forwards;
+}
+
+.dialog-container>.dialog.dialog-leave-fromtop {
+    animation: .6s DialogLeave1  forwards;
+}
+
+.dialog-container .dialog.dialog-modeless>.dialog-main {
+    padding: 20px 30px;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.dialog-container .dialog.dialog-modal>.dialog-main {
+    padding: 24px 36px;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.dialog-container .dialog>.dialog-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dialog-container .dialog>.dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 30px 20px;
+}
+
+.dialog-container .dialog>.dialog-header.info {
+    background: #288dc7;
+    color: #fff;
+}
+
+.dialog-container .dialog .dialog-header>.dialog-title {
+    margin: 16px 0 12px 24px;
+    font-size: 22px;
+}
+
+.dialog-container .dialog .dialog-header.sm>.dialog-title {
+    font-size: 14px;
+}
+
+.dialog-container .dialog .dialog-header>.dialog-titlebtns {
+    margin: 22px 22px 0 12px;
+}
+
+.dialog-container .dialog .dialog-header.sm>.dialog-titlebtns {
+    margin: 18px 18px 0 12px;
+}
+
+.dialog-container .dialog .dialog-header>.dialog-titlebtns>.dialog-close {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAAsSAAALEgHS3X78AAAAyklEQVQ4y5WTsRHCMAxFn7NDWAJajpocHcygQTKOBknacGnJErADoRE548hJUOWz9L5kSQYzVQ1stDi2sIsL0KlquQEugbsxBFUtgA44Ag+gEpHXAtwCe6AHToWIvIEbMAAHoPEqSeABuIrIGKKAHdBEAedvJQ48+UKSZSZiLheeCWREyMGugCNCDp7G6Ni4Ns6sgGWP3zzYufWmUzhw2sRqSWTrGLO+sBawliBd5Wy3HZGfVa7tIgsDiMjTetIDtYiMsfo/33lq/gcH+YZJN1piDAAAAABJRU5ErkJggg==") no-repeat ;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    margin-left: 4px;
+}
+
+.dialog-container .dialog .dialog-header>.dialog-titlebtns>.dialog-close:hover {
+    transform: scale(1.06);
+    transition: .2s all;
+}
+
+.dialog-container .dialog .dialog-header>.dialog-titlebtns>.dialog-min {
+
+}
+
+.dialog-container .dialog .dialog-header>.dialog-titlebtns>.dialog-max {
+
+}
+
+.dialog-container .dialog.dialog-modeless .dialog-main>.dialog-content {
+
+}
+
+.dialog-container .dialog.dialog-modal .dialog-main>.dialog-content {
+
+}
+
+.dialog-container .dialog.dialog-modeless .dialog-main>.dialog-main-icon,
+.dialog-container .dialog.dialog-modal .dialog-main>.dialog-main-icon {
+    width: 36px;
+    flex-shrink: 0;
+    margin-right: 16px;
+}
+
+
+/* Modal icon */
+.dialog-container .dialog .dialog-main>.dialog-main-icon>* {
+    width: 32px;
+    height: 32px;
+}
+
+.dialog-container .dialog .dialog-main>.dialog-main-icon>.info {
+}
+
+.dialog-container .dialog .dialog-main>.dialog-main-icon>.success {
+}
+
+.dialog-container .dialog .dialog-main>.dialog-main-icon>.error {
+}
+
+.dialog-container .dialog .dialog-main>.dialog-main-icon>.warning {
+}
+
+.dialog-container .dialog .dialog-main>.dialog-main-icon>.confirm {
+}
+
+.dialog-container .dialog .dialog-main>.dialog-main-icon>.answer {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAAsSAAALEgHS3X78AAADOklEQVRYw63XW6gVVRgH8N/ZHiEsK8rKpVaQXcwKK5IoRzCCCBqkjG4P0QXp9uST0QW6iPVQFAV288GCHuqlsgYqKAhcQlCcojS6eDuUjqdO9hAU0vVhZtu0OXv2zD7+YcOaxff9//+9Zs33rTWiIfI0mYnlWIYlmIP56GAvJrENETFk8bcmvCMNhOfjDqzCuQ39foO38FLI4q6hDeRpsrYUX9h0pXrwPTaGLK5rZSBPk7l4CjcNKdyLzVgTsrhnoIE8TebhDVx8mMS7+ALXhizu6GsgT5MjFZvo/AFk42XcbsUG/AuLcB1OrsnbjUtDFvf3M/Amrq4h+AEbsClkcWKK1VuAu/BADcdHuCJk8Y//GcjTZA2erkn8HFeFLO4btNZ5mqzGxpqQR0IWHz5kIE+T40qBfsv3K5aFLH7ZIxQwO2Tx2ylMPIe7+/BN4qKQxfFOOXGf+nf3RFU8T5PFeZq8gzGM5WnycZ4mt/XkPF/DNwdrYaSscDtwSp/gv0u3n5XiR5XCZ0wRuzRk8dMy7mjFzj+1D++PWNjBJTXicADbK89X9hGHFZXxP/izhvdELBvF5eoxEw/laTJZkq6siT1YGR+v6BV1uGzU4Pp+DO43GBOKAtbFchwxIOe8Tul0uhhXVLm9lbl7G+TN7SBMU3wzLgxZ3NqdyNNkPc5pkHvCKGZMQ/z1kMUbqxN5mlyv2SuDmR0MrGx9sAs394jfgNdacOzrKKrSMHi5W89L8SV4VYNDTgX7O9g5pIFtFfERPIvRlhy7OnhvSAN7KuNZis+uLd4dydNkluJ9ntQyeQw/l+NjsbRl/gGc1u2GG3DPkCsxLDaFLN7e7YbrkbckuBOnl79bWub+gscpzvTKQ8YzLUm2hyzuDFncia9a5r4QsvjdIQMlnsSHLUiqF4/fW+R9gke7D71nwgX4AGc1IHpMsRFhcZW0BhNYEbL49ZQGShOLFF3t7Bb/qgnGsSpkcaw62emNKt2txPuHUXwL0l7xKVegshIzsA63Gr5j/oRX8GDI4sGpAppcTs/Ealyj+OSaYBxv48WQxe11gY0bR54ms5EorucXKCrnPP9dzycU/WELtoYsHmjC+y+jme1Nzz48vAAAAABJRU5ErkJggg==") no-repeat;
+}
+
+
+/* dialog footer */
+.dialog-container .dialog>.dialog-footer button {
+    margin-right: 12px;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.dialog-container .dialog>.dialog-footer button:last-of-type {
+    margin-right: 0;
+}
+
+.dialog-container .dialog>.dialog-footer button>.dialog-hotkey {
+    margin-right: 4px;
+    text-transform: capitalize;
+    float: left;
+}
+
+.dialog-container .dialog>.dialog-footer button>.dialog-hotkey:before {
+    content: "(";
+}
+
+.dialog-container .dialog>.dialog-footer button>.dialog-hotkey:after {
+    content: ")";
+}
