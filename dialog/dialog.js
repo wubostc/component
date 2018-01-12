@@ -1,10 +1,6 @@
-
 "use strict";
 
-
 function Dialog(dialog_container, opt) {
-
-
 
     if (!Dialog.pool) {
         Dialog.pool = new Map();
@@ -450,7 +446,7 @@ Dialog.prototype.render = function () {
  */
 Dialog.prototype.create = function() {
 
-    this.setTitle();
+    this.setTitle(this.title);
 
 };
 
@@ -547,15 +543,15 @@ Dialog.prototype.generateStyle = function (additional) {
  *
  * @param {string|object} params
  */
-Dialog.prototype.setTitle = function () {
-
-    if (typeof this.title === "string") {
-        let text = this.title;
+Dialog.prototype.setTitle = function (params) {
+    params = params || this.title;
+    if (typeof params === "string") {
+        let text = params;
         this.title = {};
         this.title.text = text;
-    } else if (typeof this.title === "object") {
-        for (let k in this.title) {
-            this.mem.dialog_header.title.setAttribute(k, this.title[k]);
+    } else if (typeof params === "object") {
+        for (let k in params) {
+            this.mem.dialog_header.title.setAttribute(k, params[k]);
         }
     }
 

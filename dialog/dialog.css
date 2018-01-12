@@ -131,7 +131,7 @@
     border-radius: 5px;
     box-shadow: 0 0 20px 3px rgba(0,0,0,0.4);
     box-sizing: border-box;
-    position: absolute;
+    position: fixed;
     z-index: 1000;
     overflow: hidden;
     outline: 0;
@@ -187,7 +187,7 @@
 .dialog-container .dialog>.dialog-footer {
     display: flex;
     justify-content: flex-end;
-    padding: 0 30px 20px;
+    padding: 10px 30px 20px;
 }
 
 .dialog-container .dialog>.dialog-header.info {
@@ -197,7 +197,7 @@
 
 .dialog-container .dialog .dialog-header>.dialog-title {
     margin: 16px 0 12px 24px;
-    font-size: 22px;
+    font-size: 24px;
 }
 
 .dialog-container .dialog .dialog-header.sm>.dialog-title {
