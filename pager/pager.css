@@ -1,85 +1,102 @@
-.hidden {
-  display: none;
+
+.pager-hidden {
+    display: none;
 }
 
 .pager-container {
-  font-size: 12px;
-  user-select: none;
+    font-size: 12px;
+    user-select: none;
 }
 
 .pager-container ul {
-  list-style: none;
-  display: flex;
+    list-style: none;
+    display: flex;
 }
+
+
 
 .pager-container ul li.item:hover,
 .pager-container ul li.prev:hover,
 .pager-container ul li.next:hover {
-  border-color: #108ee9;
-  color: #108ee9;
-  transition: all .3s;
+    border-color: #108ee9;
+    color: #108ee9;
+    transition: all 0.3s;
 }
 
 .pager-container ul li {
-  min-width: 28px;
-  height: 28px;
-  line-height: 28px;
-  border-radius: 4px;
-  border: 1px solid #d9d9d9;
-  cursor: pointer;
-  font-family: Arial sans-serif;
-  outline: 0;
-  text-align: center;
-  margin-right: 8px;
+    min-width: 28px;
+    height: 28px;
+    padding: 0 3px;
+    box-sizing: border-box;
+    line-height: 28px;
+    border-radius: 4px;
+    border: 1px solid #d9d9d9;
+    cursor: pointer;
+    font-family: Arial sans-serif;
+    outline: 0;
+    text-align: center;
+    margin-right: 8px;
 }
 
+
+.pager-container ul li.select,
 .pager-container ul li.item.select {
-  background-color: #108ee9;
-  border-color: #108ee9;
-  color: #fff;
+    background-color: #108ee9;
+    border-color: #108ee9;
+    color: #fff;
 }
+
 
 .pager-container ul li.prev,
 .pager-container ul li.next {
-  color: rgba(0, 0, 0, .65);
+    color: rgba(0,0,0,0.65);
 }
 
 .pager-container ul li.prev.disabled,
 .pager-container ul li.next.disabled {
-  opacity: .5;
-  cursor: not-allowed;
-  border-color: #d9d9d9;
-  color: rgba(0, 0, 0, .65);
-  transition: all .3s;
+    opacity: .5;
+    cursor: not-allowed;
+    border-color: #d9d9d9;
+    color: rgba(0,0,0,0.65);
+    transition: all 0.3s;
 }
+
+.pager-container select {
+    outline: 0;
+    border: 0;
+}
+
+.pager-container .goto input {
+    outline: 0;
+    border: 0;
+}
+
+.pager-container select option {
+    min-height: 30px;
+}
+
 
 .pager-container ul li.jump-prev,
 .pager-container ul li.jump-next {
-  color: rgba(0, 0, 0, .65);
-  border: 0;
+    color: rgba(0,0,0,0.65);
+    border: 0;
 }
-
 .pager-container ul li.jump-next i.fa-angle-double-right{
-  display: none;
+    display: none;
 }
-
 .pager-container ul li.jump-next:hover i.fa-angle-double-right{
-  display: inline;
+    display: inline-block;
 }
-
 .pager-container ul li.jump-next:hover i.fa-ellipsis-h{
-  display: none;
+    display: none;
 }
-
 .pager-container ul li.jump-prev i.fa-angle-double-left{
-  display: none;
+    display: none;
 }
-
 .pager-container ul li.jump-prev:hover i.fa-angle-double-left{
-  display: inline;
+    display: inline-block;
 }
-
 .pager-container ul li.jump-prev:hover i.fa-ellipsis-h{
-  display: none;
+    display: none;
 }
 
